@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ParaMaP</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ParaMaP: Parallel Mapping and Collision-free Motion Planning for
+            Reactive Robot Manipulation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Xuewei Zhang<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Bailing Tian<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Kai Zheng<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Yulin Hui<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Junjie Lu<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Zhiyu Li<sup>1</sup>,
+            </span>
+            <!-- <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
+            </span> -->
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup><a href="https://tju-air-lab.github.io">TJU-AIR-LAB</a>, Tianjin University</span>
+            <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div> -->
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Real-time and collision-free motion planning remains challenging for robotic manipulation in unknown environments due to continuous perception updates and the need for frequent online replanning. To address these challenges, we propose a parallel mapping and motion planning framework that tightly integrates Euclidean Distance Transform (EDT)-based environment representation with a sampling-based model predictive control (SMPC) planner.
+          </p>
+          <p>
+            On the mapping side, a dense distance-field-based representation is constructed using a GPU-based EDT and augmented with a robot-masked update mechanism to prevent false self-collision detections during online perception. On the planning side, motion generation is formulated as a stochastic optimization problem with a unified objective function and efficiently solved by evaluating large batches of candidate rollouts in parallel within a SMPC framework, in which a geometrically consistent pose tracking metric defined on <span style="font-style: italic;">SE(3)</span> is incorporated to ensure fast and accurate convergence to the target pose.
+          </p>
+          <p>
+            The entire mapping and planning pipeline is implemented on the GPU to support high-frequency replanning. The effectiveness of the proposed framework is validated through extensive simulations and real-world experiments on a 7-DoF robotic manipulator. More details are available at: <a href="https://zxw610.github.io/ParaMaP">https://zxw610.github.io/ParaMaP</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<!-- Contributions -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Contributions</h2>
+
+    <div class="columns is-centered is-multiline">
+
+      <!-- Contribution 1 -->
+      <div class="column is-half">
+        <div class="card contribution-card">
+          <div class="card-content">
+            <p class="title is-5">
+              <span class="icon has-text-danger">
+                <i class="fas fa-route"></i>
+              </span>
+              Sampling-based Motion Planning on SE(3)
+            </p>
+            <p class="content">
+              We propose a novel sampling-based motion planning formulation for robotic manipulation
+              that integrates distance-field-based collision costs with a Lie-algebra-based pose tracking
+              objective on <span style="font-style: italic;">SE(3)</span> within a stochastic MPC framework,
+              enabling safe and reactive motion generation in unknown environments.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contribution 2 -->
+      <div class="column is-half">
+        <div class="card contribution-card">
+          <div class="card-content">
+            <p class="title is-5">
+              <span class="icon has-text-info">
+                <i class="fas fa-compass"></i>
+              </span>
+              Geometrically Consistent Pose Error Metric
+            </p>
+            <p class="content">
+              We introduce a Lie-algebra-based pose error metric on
+              <span style="font-style: italic;">SE(3)</span> and incorporate it into the proposed
+              stochastic MPC formulation, providing a geometrically consistent treatment of
+              rotational and translational deviations and enabling fast convergence under
+              practical execution constraints.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contribution 3 -->
+      <div class="column is-half">
+        <div class="card contribution-card">
+          <div class="card-content">
+            <p class="title is-5">
+              <span class="icon has-text-success">
+                <i class="fas fa-project-diagram"></i>
+              </span>
+              Parallel Mapping and Distance Field Construction
+            </p>
+            <p class="content">
+              We develop an efficient parallel mapping and Euclidean Distance Field construction
+              method based on a gather-then-transform strategy and robot-masked updates, supporting
+              low-latency distance queries and reliable collision avoidance during online replanning.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contribution 4 -->
+      <div class="column is-half">
+        <div class="card contribution-card">
+          <div class="card-content">
+            <p class="title is-5">
+              <span class="icon has-text-warning">
+                <i class="fas fa-microchip"></i>
+              </span>
+              Unified GPU-based Architecture
+            </p>
+            <p class="content">
+              The proposed mapping and planning framework achieves real-time and high-frequency
+              replanning for reactive robot manipulation by leveraging a unified CUDA-based
+              architecture that fully exploits massive GPU parallelism.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+      <!-- ===============================
+          Benchmark Comparisons
+      ================================ -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-2 has-text-centered">
+            Benchmark Comparisons
+          </h2>
+
+        <!-- Mapping Evaluation -->
+        <h3 class="title is-4">Mapping Evaluation</h3>
+
+        <div class="content has-text-justified">
+          <p>
+            We evaluate the efficiency of the proposed mapping algorithm on two public datasets
+            covering both depth-camera and LiDAR sensing modalities, namely the
+            <a href="http://projects.asl.ethz.ch/datasets/panoptic-mapping"
+              target="_blank" style="color: magenta;">
+              Flat Dataset
+            </a>
+            and the
+            <a href="http://projects.asl.ethz.ch/datasets/dynablox"
+              target="_blank" style="color: magenta;">
+              Dynablox Dataset
+            </a>.
+            The proposed method is compared against the state-of-the-art
+            <a href="https://github.com/JINXER000/GIE-mapping"
+              target="_blank" style="color: rgb(0, 0, 255);">
+              <strong>GIE-Mapping</strong>
+            </a>
+              under identical experimental settings.
+
+          </p>
+
+          <p>
+            Quantitative results show that our approach consistently achieves lower total mapping time (occupancy grid mapping + Euclidean distance transform) across different voxel resolutions. The performance gain is primarily attributed to a significantly faster EDT update, while the OGM stage also exhibits a slight reduction in computation time due to a streamlined system implementation.
+          </p>
+
+          <p>
+            Notably, the proposed EDT construction remains efficient even at fine voxel resolutions and large map sizes, demonstrating its effectiveness across different sensing modalities and suitability for high-frequency replanning in reactive manipulation scenarios.
+          </p>
+        </div>
+
+        <div class="columns is-centered has-text-centered">
+
+          <div class="column is-one-quarter">
+            <figure>
+              <img src="./static/images/camera_total_time.png" alt="Camera Mapping - Total Time">
+              <figcaption class="fig-cap">
+                <div class="cap-main">Camera</div>
+                <div class="cap-sub">Total Time</div>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure>
+              <img src="./static/images/camera_ogm_edt_time.png" alt="Camera Mapping - OGM + EDT">
+              <figcaption class="fig-cap">
+                <div class="cap-main">Camera</div>
+                <div class="cap-sub">OGM + EDT</div>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure>
+              <img src="./static/images/lidar_total_time.png" alt="LiDAR Mapping - Total Time">
+              <figcaption class="fig-cap">
+                <div class="cap-main">LiDAR</div>
+                <div class="cap-sub">Total Time</div>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure>
+              <img src="./static/images/lidar_ogm_edt_time.png" alt="LiDAR Mapping - OGM + EDT">
+              <figcaption class="fig-cap">
+                <div class="cap-main">LiDAR</div>
+                <div class="cap-sub">OGM + EDT</div>
+              </figcaption>
+            </figure>
+          </div>
+
+        </div>
+
+
+        <!-- Motion Planning Evaluation -->
+        <h3 class="title is-4">Motion Planning Evaluation</h3>
+
+        <div class="content has-text-justified">
+           <p>
+            We evaluate the proposed SMPC-based motion planner and compare it against
+            <a href="https://github.com/moveit/moveit"
+              target="_blank" style="color: rgb(0, 0, 255);">
+              <strong>RRTConnect</strong> 
+            </a>
+            (OMPL/MoveIt) and 
+            <a href="https://github.com/NVlabs/storm"
+              target="_blank" style="color: rgb(0, 0, 255);">
+              <strong>STORM</strong> 
+            </a>
+            in a Gazebo benchmark with known obstacles. A representative planning example is shown in the video below.
+          </p>
+        </div>
+
+        <!-- =========================
+            Row 1: Videos + Small Tables
+        ========================= -->
+        <div class="columns is-centered">
+
+          <!-- RRTConnect -->
+          <div class="column is-one-third has-text-centered">
+            <p class="title is-5">RRTConnect</p>
+
+            <video controls muted playsinline width="100%">
+              <source src="./static/videos/RRT_plan.mp4" type="video/mp4">
+            </video>
+
+            <!-- <div class="card metric-card">
+              <div class="card-content">
+                <table class="table is-narrow is-fullwidth is-size-7">
+                  <tbody>
+                    <tr><td>Planning Time</td><td>56.508 ms</td></tr>
+                    <tr><td>Motion Time</td><td>16.420 s</td></tr>
+                    <tr><td>Path Length</td><td>13.153 rad</td></tr>
+                    <tr><td>Position Error</td><td>6.470 mm</td></tr>
+                    <tr><td>Orientation Error</td><td>0.152 rad</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div> -->
+          </div>
+
+          <!-- STORM -->
+          <div class="column is-one-third has-text-centered">
+            <p class="title is-5">STORM</p>
+
+            <video controls muted playsinline width="100%">
+              <source src="./static/videos/STORM_plan.mp4" type="video/mp4">
+            </video>
+
+            <!-- <div class="card metric-card">
+              <div class="card-content">
+                <table class="table is-narrow is-fullwidth is-size-7">
+                  <tbody>
+                    <tr><td>Planning Time</td><td>21.483 ms</td></tr>
+                    <tr><td>Motion Time</td><td>22.581 s</td></tr>
+                    <tr><td>Path Length</td><td>16.580 rad</td></tr>
+                    <tr><td>Position Error</td><td>9.380 mm</td></tr>
+                    <tr><td>Orientation Error</td><td>0.215 rad</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div> -->
+          </div>
+
+          <!-- Proposed -->
+          <div class="column is-one-third has-text-centered">
+            <p class="title is-5">Proposed</p>
+
+            <video controls muted playsinline width="100%">
+              <source src="./static/videos/Proposed_plan.mp4" type="video/mp4">
+            </video>
+
+            <!-- <div class="card metric-card highlight-card">
+              <div class="card-content">
+                <table class="table is-narrow is-fullwidth is-size-7">
+                  <tbody>
+                    <tr><td>Planning Time</td><td><strong>5.528 ms</strong></td></tr>
+                    <tr><td>Motion Time</td><td><strong>10.035 s</strong></td></tr>
+                    <tr><td>Path Length</td><td><strong>13.578 rad</strong></td></tr>
+                    <tr><td>Position Error</td><td><strong>1.068 mm</strong></td></tr>
+                    <tr><td>Orientation Error</td><td><strong>0.036 rad</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div> -->
+          </div>
+
+        </div> <!-- end row 1 -->
+
+
+        <p>
+          The experimental results are summarized in Table I, with all metrics averaged over multiple runs. The proposed method achieves the shortest planning time and motion time, the shortest path length, and the smallest final pose error. These improvements are enabled by a fully GPU-parallelized SMPC implementation and a geometrically consistent pose error formulation on
+          <span style="font-style: italic;">SE(3)</span>.
+        </p>
+
+
+        <!-- =========================
+            Row 2: Quantitative Table
+        ========================= -->
+        <div class="columns is-centered" style="margin-top: 2.5rem;">
+          <div class="column is-three-quarters">
+
+            <h4 class="title is-4 has-text-centered">Quantitative Comparison</h4>
+
+            <table class="table is-bordered is-narrow is-fullwidth motion-table">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th class="has-text-centered">RRTConnect</th>
+                  <th class="has-text-centered">STORM</th>
+                  <th class="has-text-centered"><strong>Proposed</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Planning Time (ms) ↓</td>
+                  <td class="has-text-centered">61.202</td>
+                  <td class="has-text-centered">18.875</td>
+                  <td class="has-text-centered"><strong>5.322</strong></td>
+                </tr>
+                <tr>
+                  <td>Motion Time (s) ↓</td>
+                  <td class="has-text-centered">13.720</td>
+                  <td class="has-text-centered">16.580</td>
+                  <td class="has-text-centered"><strong>12.412</strong></td>
+                </tr>
+                <tr>
+                  <td>Path Length (rad) ↓</td>
+                  <td class="has-text-centered">13.153</td>
+                  <td class="has-text-centered">15.316</td>
+                  <td class="has-text-centered"><strong>12.341</strong></td>
+                </tr>
+                <tr>
+                  <td>Position Error (mm) ↓</td>
+                  <td class="has-text-centered">3.674</td>
+                  <td class="has-text-centered">9.299</td>
+                  <td class="has-text-centered"><strong>2.778</strong></td>
+                </tr>
+                <tr>
+                  <td>Orientation Error (rad) ↓</td>
+                  <td class="has-text-centered">0.104</td>
+                  <td class="has-text-centered">0.327</td>
+                  <td class="has-text-centered"><strong>0.049</strong></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="has-text-centered is-size-6">
+              <em>
+                Table I: Quantitative comparison of motion-planning performance across different methods.
+                Best results are highlighted in bold.
+              </em>
+            </p>
+
+          </div>
+        </div>
+
+
+
+
+        <!-- Integrated System Evaluation -->
+        <h3 class="title is-4">Integrated System Evaluation</h3>
+        <div class="content has-text-justified">
+          <p>
+           To further assess the proposed approach, we conduct an integrated system evaluation of the full pipeline that integrates online mapping and motion planning. The experiments are performed in a cluttered Gazebo simulation environment, as shown in the following video.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video controls muted playsinline width="75%">
+            <source src="./static/videos/Proposed_dynamic_small.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p>
+          We further report system-level runtime performance. The results indicate that the proposed mapping and planning pipeline can operate at update rates exceeding <strong>150 Hz</strong> in real time. These results demonstrate that the proposed framework enables collision-free and reactive motion planning for robotic manipulation in dynamic environments.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================
+         Real-world Experiments
+    ================================ -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2 has-text-centered">
+          Real-world Experiments
+        </h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We further validate the proposed approach through real-world experiments on a 7-DoF Flexiv Rizon 4 robotic manipulator equipped with an Intel RealSense D435i depth camera. Two representative scenarios are evaluated: (1) point-to-point motion planning, and (2) reactive motion planning under dynamic obstacles introduced by a moving human arm. The experimental videos are illustrated below.
+          </p>
+        </div>
+
+        <!-- Videos row -->
+        <div class="columns is-centered is-vcentered">
+
+          <!-- Point-to-Point Planning -->
+          <div class="column is-half has-text-centered">
+            <h3 class="title is-5">The first scenario</h3>
+            <video controls muted playsinline width="100%">
+              <source src="./static/videos/edit_real_world_p2p_small.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <!-- Reactive Planning -->
+          <div class="column is-half has-text-centered">
+            <h3 class="title is-5">The second scenario</h3>
+            <video controls muted playsinline width="100%">
+              <source src="./static/videos/edit_real_world_dyn_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          
+        </div>
+        <p>
+          These results validate the effectiveness of the proposed mapping and motion planning framework in real-world scenarios.
+        </p>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- ===============================
+     More Experiments
+=============================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-2 has-text-centered">
+      More Experiments
+    </h2>
+
+    <p class="has-text-centered is-size-6" style="margin-bottom: 2.5rem;">
+      We demonstrate the capabilities of the proposed framework through both simulation and real-world experiments, covering pose reaching, obstacle avoidance, and reactive planning by more experiments.
+    </p>
+
+    <!-- ===============================
+         Simulation Experiments
+    ================================ -->
+    <h3 class="title is-4 has-text-centered">
+      Simulation Experiments
+    </h3>
+
+    <div class="columns is-centered is-multiline">
+
+      <!-- Reaching Cartesian Poses -->
+      <div class="column is-half">
+        <div class="demo-card">
+          <h3 class="title is-5">Cartesian Pose Reaching</h3>
+          <p class="demo-desc">
+            The robot reaches target Cartesian poses accurately and quickly, validating the effectiveness of the geometrically consistent pose error formulation on SE(3).
+          </p>
+          <div class="video-wrapper">
+            <video autoplay muted loop controls playsinline>
+              <source src="./static/videos/reach_goal_small.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <!-- Known Obstacles -->
+      <div class="column is-half">
+        <div class="demo-card">
+          <h3 class="title is-5">Obstacle Avoidance with Known Environment</h3>
+          <p class="demo-desc">
+            The robot avoids known static obstacles using pre-defined environment
+            models, validating planning performance in fully known scenes.
+          </p>
+          <div class="video-wrapper">
+            <video controls playsinline>
+              <source src="./static/videos/p2p_plan_small.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unknown Static Obstacles -->
+      <div class="column is-half">
+        <div class="demo-card">
+          <h3 class="title is-5">Obstacle Avoidance with Unknown Environment</h3>
+          <p class="demo-desc">
+            The robot constructs and maintains an online EDT map and replans motions in real time to ensure collision avoidance.
+          </p>
+          <div class="video-wrapper">
+            <video controls playsinline>
+              <source src="./static/videos/static_obs_avoidance_small.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unknown Dynamic Obstacles -->
+      <div class="column is-half">
+        <div class="demo-card">
+          <h3 class="title is-5">Obstacle Avoidance with Unknown Dynamic Obstacles</h3>
+          <p class="demo-desc">
+            The robot reacts to previously unknown and moving obstacles by
+            continuously updating the map and replanning collision-free motions.
+          </p>
+          <div class="video-wrapper">
+            <video controls playsinline>
+              <source src="./static/videos/moving_obs_avoidance_small.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- end simulation -->
+
+    <!-- ===============================
+         Real-world Experiments
+    ================================ -->
+    <h3 class="title is-4 has-text-centered" style="margin-top: 3rem;">
+      Real-world Experiments
+    </h3>
+
+    <div class="columns is-centered is-multiline">
+
+      <!-- Real-world P2P -->
+      <div class="column is-half">
+        <div class="demo-card">
+          <h3 class="title is-5">Point-to-Point Planning</h3>
+          <!-- <p class="demo-desc">
+            The robot executes point-to-point motions in a real environment with
+            previously unknown obstacles, validating sim-to-real transfer.
+          </p> -->
+          <div class="video-wrapper">
+            <video controls muted playsinline>
+              <source src="./static/videos/edit_real_exp_p2p_more_small.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real-world Dynamic -->
+      <div class="column is-half">
+        <div class="demo-card">
+          <h3 class="title is-5">Reactive Planning</h3>
+          <div class="video-wrapper">
+            <video controls muted playsinline>
+              <source src="./static/videos/edit_real_exp_people_intervention_small.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- end real-world -->
+
+  </div>
+</section>
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section> -->
+
+<footer class="footer">
+  <div class="container">
+    <hr style="margin-bottom: 1.5rem;">
+    <div class="content has-text-centered has-text-grey-light">
+      <p>
+        © 2025 · ParaMaP: Parallel Mapping and Collision-free Motion Planning for Reactive Robot Manipulation
+      </p>
+      <p style="font-size: 0.9em;">
+        Research Project Page
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

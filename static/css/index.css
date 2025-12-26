@@ -1,0 +1,257 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+
+.publication-title {
+}
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+
+.interpolation-panel {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.interpolation-panel .interpolation-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.interpolation-video-column {
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}
+
+ /* 1️⃣ 统一 figure 行为 */
+.columns figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 2️⃣ 🔥 统一图片高度（关键） */
+.columns figure img {
+  width: 100%;
+  height: 180px;          /* ← 你可以改成 160 / 200 */
+  object-fit: contain;    /* contain = 不裁剪；cover = 填满裁剪 */
+}
+
+/* 3️⃣ caption：现在一定能对齐了 */
+.columns figure figcaption.fig-cap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  margin-top: 0.6rem;
+  min-height: 3.2em;
+
+  text-align: center;
+  font-style: normal;
+}
+
+.columns figure figcaption.fig-cap .cap-main {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.columns figure figcaption.fig-cap .cap-sub {
+  font-size: 0.9rem;
+  line-height: 1.2;
+  color: #555;
+}
+
+/* Card: consistent look */
+.demo-card{
+  height: 100%;
+  padding: 1.25rem;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title spacing */
+.demo-card .title{
+  margin-bottom: 0.5rem;
+}
+
+/* Description: make cards same height */
+.demo-desc{
+  color: #4a4a4a;
+  margin-bottom: 1rem;
+  flex: 1;               /* crucial: equalize card height */
+  line-height: 1.45;
+}
+
+/* Fixed aspect ratio video area */
+.video-wrapper{
+  width: 100%;
+  aspect-ratio: 16 / 9;  /* unify video height */
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+}
+
+/* Video fills wrapper */
+.video-wrapper video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* nicer crop, avoids weird letterboxing */
+  display: block;
+}
+
+/* Optional: slightly tighter columns on desktop */
+@media (min-width: 1024px){
+  .columns.is-multiline .column{
+    padding: 0.75rem;
+  }
+}
+
+.contribution-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content a {
+  color: magenta;
+}
+.content a:hover {
+  text-decoration: underline;
+}
